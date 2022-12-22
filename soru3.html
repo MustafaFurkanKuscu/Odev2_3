@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="prediction" id="prediction">1. Tahmini girin</label>
+    <input type="number" required name="prediction" id="number"><br><br>
+    <input type="submit" onclick="ControlNumber()" value="Tahmin Yap">
+    <hr>
+    <p id="result"></p>
+</body>
+
+<script>
+    let i=1;
+    const randomnumber=Math.floor(Math.random()*101);
+
+    function ControlNumber(){
+        console.log(randomnumber);
+        const usernumber=parseInt( document.getElementById("number").value);
+
+        if(i==7){
+            if(usernumber==randomnumber){
+            document.getElementById("result").innerHTML="Sayı "+i+". denemede bulundu";
+            }
+            else
+            {
+                i=i+1;
+                document.getElementById("result").innerHTML="Deneme Hakkınız Kalmadı";
+
+            }
+
+        }
+        else if(i<7){
+            if(usernumber==randomnumber){
+            document.getElementById("result").innerHTML="Sayı "+i+". denemede bulundu";
+        }
+        else if(usernumber<randomnumber){
+            document.getElementById("result").innerHTML="Daha büyük bir sayı giriniz";
+            i=i+1;
+            document.getElementById("prediction").innerHTML= i+". Tahmini Girin";
+        }
+        else if(usernumber>randomnumber){
+            document.getElementById("result").innerHTML="Daha küçük bir sayı giriniz";
+            i=i+1;
+            document.getElementById("prediction").innerHTML= i+". Tahmini Girin";
+        }
+        else
+        {
+            i=i+1;
+            document.getElementById("prediction").innerHTML= i+". Tahmini Girin";
+        }
+        
+
+        }
+        else{
+            document.getElementById("result").innerHTML="Deneme Hakkınız Kalmadı";
+
+        }
+
+        
+
+
+    }
+</script>
+
+
+
+
+</html>
